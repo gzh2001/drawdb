@@ -28,3 +28,9 @@ jobs:
       run: npm run lint
     - name: Run vite build
       run: npm run build
+    - name: Upload dist artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-${{ matrix.node-version }}
+        path: dist/
+        retention-days: 7
